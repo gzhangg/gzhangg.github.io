@@ -1,10 +1,243 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Gianna Zhang | Research</title>
+
+  <meta
+    name="description"
+    content="Gianna Zhang's research in computer systems, reliability, and AI infrastructure."
+  >
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>Gianna Zhang</h1>
-  <p>Research in computer systems, reliability, and AI infrastructure.</p>
+
+  <header class="site-header">
+    <div class="nav-container">
+      <a class="name" href="/">Gianna Zhang</a>
+
+      <nav>
+        <a href="#research">Research</a>
+        <a href="#about">About</a>
+        <a href="https://github.com/gzhangg" target="_blank" rel="noopener">
+          GitHub
+        </a>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+
+        <p class="eyebrow">COMPUTER SYSTEMS · RELIABILITY · AI INFRASTRUCTURE</p>
+
+        <h1>
+          Designing protection systems
+          <span>for the common case and the tail.</span>
+        </h1>
+
+        <p class="hero-text">
+          I study how computing systems can maintain strong protection
+          without paying its full cost on every operation — and how rare,
+          expensive recovery events reshape system design when they become
+          concentrated in time.
+        </p>
+
+        <a class="primary-link" href="#research">
+          Explore the research ↓
+        </a>
+
+      </div>
+    </section>
+
+
+    <!-- RESEARCH TRAJECTORY -->
+    <section class="trajectory" id="research">
+
+      <div class="section-heading">
+        <p class="eyebrow">RESEARCH TRAJECTORY</p>
+        <h2>From rare recovery to burst-aware recovery.</h2>
+
+        <p>
+          My work began with a systems question: if expensive protection is
+          needed only rarely, can it be moved off the common path? That led
+          naturally to a second question: once recovery is rare and
+          conditional, is its average frequency enough to provision the
+          system?
+        </p>
+      </div>
+
+
+      <div class="trajectory-line">
+
+        <div class="trajectory-node">
+          <span>2025</span>
+          <div class="dot"></div>
+        </div>
+
+        <div class="connector"></div>
+
+        <div class="trajectory-node">
+          <span>2026</span>
+          <div class="dot"></div>
+        </div>
+
+      </div>
+
+
+      <!-- PROJECT 1 -->
+      <article class="project">
+
+        <div class="project-number">01</div>
+
+        <div class="project-content">
+
+          <div class="project-meta">
+            <span>2025</span>
+            <span>Architecture · Modeling · Hardware Prototype</span>
+          </div>
+
+          <h3>Green-Light Security for AI Computing</h3>
+
+          <p class="project-subtitle">
+            Toward secure, energy-efficient, and sustainable AI infrastructure.
+          </p>
+
+          <p>
+            Green-Light Security reorganizes protection around the common
+            case. Lightweight integrity verification remains continuously
+            in-path, while expensive reliability correction is invoked only
+            when needed. The project combines analytical modeling,
+            simulation, and a Raspberry Pi–ESP32 hardware prototype.
+          </p>
+
+          <div class="project-result">
+            <span class="result-label">Core idea</span>
+            <p>
+              Keep inexpensive safeguards always on; move rare,
+              expensive corrective work off the critical path.
+            </p>
+          </div>
+
+          <div class="project-links">
+            <a href="green-light.html">Project page →</a>
+            <a href="#" class="muted-link">Paper PDF — coming next</a>
+            <a href="#" class="muted-link">Code — coming next</a>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <div class="research-bridge">
+        <p>
+          <span>The question that followed:</span>
+          If strong recovery is rare on average, what happens when those
+          rare requests arrive together?
+        </p>
+        <div class="bridge-arrow">↓</div>
+      </div>
+
+
+      <!-- PROJECT 2 -->
+      <article class="project">
+
+        <div class="project-number">02</div>
+
+        <div class="project-content">
+
+          <div class="project-meta">
+            <span>2026</span>
+            <span>Queueing Theory · Simulation · Systems Co-Design</span>
+          </div>
+
+          <h3>
+            Burst-Aware Provisioning for Progressive Protection
+            Under Tail-Latency SLOs
+          </h3>
+
+          <p class="project-subtitle">
+            A tail-latency co-design study.
+          </p>
+
+          <p>
+            This work studies progressive protection when expensive fallback
+            requests are rare but temporally correlated. A mean-preserving
+            burst model separates how often escalation occurs from how it is
+            distributed in time, connecting analytical queue-tail theory with
+            finite-SLO simulation and system co-design.
+          </p>
+
+          <div class="project-result">
+            <span class="result-label">Core result</span>
+            <p>
+              At the same mean escalation probability, severe persistent
+              burstiness can more than double the full-strength capability
+              required to satisfy the same tail-latency SLO.
+            </p>
+          </div>
+
+          <div class="project-links">
+            <a href="burst-aware.html">Project page →</a>
+            <a href="#" class="muted-link">Paper PDF — coming next</a>
+            <a href="#" class="muted-link">Code — coming next</a>
+          </div>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+      <div>
+        <p class="eyebrow">ABOUT</p>
+        <h2>Gianna Zhang</h2>
+      </div>
+
+      <div class="about-text">
+        <p>
+          I am a student researcher interested in computer systems,
+          reliability, mathematical modeling, and AI infrastructure.
+          I am particularly interested in systems where average-case
+          efficiency and rare-event behavior lead to different design
+          decisions.
+        </p>
+
+        <p>
+          This site documents my research projects, papers,
+          experimental artifacts, and reproducible code.
+        </p>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    <p>© 2026 Gianna Zhang</p>
+
+    <a
+      href="https://github.com/gzhangg"
+      target="_blank"
+      rel="noopener"
+    >
+      github.com/gzhangg
+    </a>
+  </footer>
+
 </body>
 </html>
