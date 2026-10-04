@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Green-Light Security | Gianna Zhang</title>
+
+  <meta
+    name="description"
+    content="Green-Light Security for AI Computing — research by Gianna Zhang."
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="nav-container">
+      <a class="name" href="/">Gianna Zhang</a>
+
+      <nav>
+        <a href="/#research">Research</a>
+        <a href="/#about">About</a>
+        <a
+          href="https://github.com/gzhangg"
+          target="_blank"
+          rel="noopener"
+        >
+          GitHub
+        </a>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+
+    <section class="project-hero">
+
+      <div class="project-hero-inner">
+
+        <a class="back-link" href="/#research">
+          ← Research
+        </a>
+
+        <p class="eyebrow">
+          2025 · ARCHITECTURE · MODELING · HARDWARE PROTOTYPE
+        </p>
+
+        <h1>
+          Green-Light Security
+          <span>for AI Computing</span>
+        </h1>
+
+        <p class="project-deck">
+          Toward secure, energy-efficient, and sustainable
+          AI infrastructure.
+        </p>
+
+        <div class="project-actions">
+
+          <a
+            class="button-primary"
+            href="assets/green-light/Green_Light_Security_for_AI_Computing.pdf"
+          >
+            Read the paper
+          </a>
+
+          <a
+            class="button-secondary"
+            href="https://github.com/gzhangg/green-light-security"
+            target="_blank"
+            rel="noopener"
+          >
+            View code on GitHub
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="project-detail">
+
+      <aside class="project-sidebar">
+
+        <div class="sidebar-item">
+          <span>Year</span>
+          <p>2025</p>
+        </div>
+
+        <div class="sidebar-item">
+          <span>Methods</span>
+          <p>
+            Mathematical modeling<br>
+            Simulation<br>
+            Optimization<br>
+            Hardware prototype
+          </p>
+        </div>
+
+        <div class="sidebar-item">
+          <span>Prototype</span>
+          <p>
+            Raspberry Pi 5<br>
+            ESP32
+          </p>
+        </div>
+
+        <div class="sidebar-item">
+          <span>Recognition</span>
+          <p>
+            Local ISEF-affiliated science fair award
+          </p>
+        </div>
+
+      </aside>
+
+
+      <div class="project-body">
+
+        <section>
+
+          <p class="eyebrow">THE QUESTION</p>
+
+          <h2>
+            Must strong protection impose its full cost
+            on every memory access?
+          </h2>
+
+          <p>
+            Modern AI systems require strong reliability and integrity,
+            but protection metadata and correction mechanisms consume
+            bandwidth, capacity, energy, and latency even when errors
+            are rare.
+          </p>
+
+          <p>
+            Green-Light Security asks whether protection can instead
+            be organized around the common case: keep lightweight
+            safeguards continuously active, while invoking expensive
+            corrective work only when necessary.
+          </p>
+
+        </section>
+
+
+        <section>
+
+          <p class="eyebrow">THE IDEA</p>
+
+          <h2>
+            Separate common-path integrity from
+            rare reliability correction.
+          </h2>
+
+          <p>
+            The architecture keeps coarse-grained integrity
+            verification in the fast memory tier while moving
+            error-correction parity to a lower-cost off-path tier.
+            Normal reads remain on the fast path. If verification
+            fails, the system retrieves parity and invokes stronger
+            correction.
+          </p>
+
+          <div class="insight-box">
+
+            <span>Design principle</span>
+
+            <p>
+              Keep inexpensive safeguards always on.
+              Move rare, expensive corrective work off
+              the critical path.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <section>
+
+          <p class="eyebrow">THE MODEL</p>
+
+          <h2>
+            Protection granularity creates a systems tradeoff.
+          </h2>
+
+          <p>
+            Larger protection domains amortize MAC and ECC metadata
+            over more user data, lowering steady protection overhead.
+            But larger blocks also contain more bits and therefore
+            increase the probability that a read invokes the expensive
+            correction path.
+          </p>
+
+          <p>
+            The mathematical formulation combines reliability,
+            integrity, memory cost, decoding throughput, and
+            off-path bandwidth to identify operating regions in
+            which the fast memory path remains unconstrained by
+            protection work.
+          </p>
+
+        </section>
+
+
+        <section>
+
+          <p class="eyebrow">HARDWARE PROTOTYPE</p>
+
+          <h2>
+            Testing the fast-path / slow-path separation
+            on physical hardware.
+          </h2>
+
+          <p>
+            A Raspberry Pi 5 represents the fast memory tier and
+            performs local integrity checks. An ESP32 represents the
+            off-path reliability tier and is contacted only when
+            correction is triggered.
+          </p>
+
+          <figure class="research-figure">
+
+            <img
+              src="assets/green-light/prototype.jpg"
+              alt="Green-Light Security Raspberry Pi and ESP32 prototype"
+            >
+
+            <figcaption>
+              Raspberry Pi 5 and ESP32 prototype used to emulate
+              fast in-path verification and slower off-path recovery.
+            </figcaption>
+
+          </figure>
+
+        </section>
+
+
+        <section>
+
+          <p class="eyebrow">RESULT</p>
+
+          <h2>
+            Protection does not have to be monolithic.
+          </h2>
+
+          <p>
+            Across the analytical model, simulation, and prototype,
+            the work shows that a tiered protection architecture can
+            reduce steady protection overhead while reserving
+            expensive correction for uncommon fault events.
+          </p>
+
+          <p>
+            More importantly, the project exposed a second systems
+            question: once expensive recovery becomes rare and
+            conditional, how should the fallback resource itself
+            be provisioned?
+          </p>
+
+        </section>
+
+
+        <section class="next-project">
+
+          <p class="eyebrow">WHAT CAME NEXT</p>
+
+          <h2>
+            From rare recovery to burst-aware recovery.
+          </h2>
+
+          <p>
+            Average recovery frequency is not enough if difficult
+            requests cluster in time. That question became the
+            starting point for my next project.
+          </p>
+
+          <a href="burst-aware.html">
+            Burst-Aware Provisioning →
+          </a>
+
+        </section>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <p>© 2026 Gianna Zhang</p>
+
+    <a
+      href="https://github.com/gzhangg"
+      target="_blank"
+      rel="noopener"
+    >
+      github.com/gzhangg
+    </a>
+
+  </footer>
+
+</body>
+</html>
